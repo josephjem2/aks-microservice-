@@ -1,0 +1,20 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aks-microservice
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: aks-microservice
+  template:
+    metadata:
+      labels:
+        app: aks-microservice
+    spec:
+      containers:
+      - name: aks-microservice
+        image: josephjem2/aks-microservice:v1
+        ports:
+        - containerPort: 80
